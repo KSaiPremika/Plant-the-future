@@ -1,0 +1,204 @@
+{% extends "basic.html"%}
+{% block body %}
+
+        <link rel="stylesheet" href="{{url_for('static',filename='css/lightbox.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/images.css')}}">
+
+<script type="text/javascript" src="{{url_for('static',filename='js/lightbox-plus-jquery.min.js')}}"></script>
+<script src="{{url_for('static',filename='js/feather.min.js')}}"></script>
+
+
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Album example</h1>
+      <p class="lead text-muted">
+        On average, one tree produces nearly 260 pounds of oxygen each year. Two mature trees can provide enough oxygen for a family of four." That same acre of trees also produces enough oxygen for 18 people to breathe for a year."
+
+      </p>
+    </div>
+  </section>
+
+      <section class="container h-100 d-flex justify-content-center">
+        <div id="lightgallery" class="jumbotron my-auto">
+                <div class="row justify-content-center">
+
+                  {% if treesAndArea %}
+
+                  {% for block in treesAndArea[0:3] %}
+                     <a class="" href="{{url_for('static',filename=block['imageName'])}}" data-lightbox="lightbox" data-title="">
+                        <img src="{{url_for('static',filename=block['imageName'])}}">
+                     </a>
+
+                  {% endfor %}
+
+                  {% endif %}
+
+                  </div>
+
+
+                <div class="row justify-content-center">
+                 {% if treesAndArea %}
+
+                  {% for block in treesAndArea[3:6] %}
+                     <a class="" href="{{url_for('static',filename=block['imageName'])}}" data-lightbox="lightbox" data-title="">
+                        <img src="{{url_for('static',filename=block['imageName'])}}">
+                     </a>
+
+                  {% endfor %}
+
+                  {% endif %}
+                </div>
+
+
+
+                <div class="row justify-content-center">
+                 {% if treesAndArea %}
+
+                  {% for block in treesAndArea[6:9] %}
+                     <a class="" href="{{url_for('static',filename=block['imageName'])}}" data-lightbox="lightbox" data-title="">
+                        <img src="{{url_for('static',filename=block['imageName'])}}">
+                     </a>
+
+                  {% endfor %}
+
+                  {% endif %}
+                </div>
+
+
+
+        </div>
+
+      </section>
+
+
+        <script>
+            lightbox.option({
+              'resizeDuration': 200,
+              'wrapAround': true
+            })
+        </script>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+
+        {% if treesAndArea %}
+
+                  {% for block in treesAndArea %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="{{url_for('static',filename=block['imageName'])}}">
+
+            <div class="card-body">
+              <p class="card-text">
+
+              </p>
+
+              <table class="table table-striped">
+                  <tbody>
+                      <tr class="nav-item">
+                          <td ><img width="25" height="25" src="{{url_for('static',filename='assets/img/favicons/green_tree.svg')}}"/>
+                            Total Trees
+                          </td>
+                          <td>
+                              {{block['treeCount']}}
+                          </td>
+                      </tr>
+
+
+                       <tr class="nav-item">
+                          <td ><span data-feather="pie-chart"></span>
+                            Total Arable land
+                          </td>
+                          <td>
+                            {{(block['totalArea'])|round|int}} sq.m
+                          </td>
+                        </tr>
+                  </tbody>
+              </table>
+
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" data-toggle="collapse" href="#test{{loop.index0+1}}" class="btn btn-sm btn-outline-secondary" aria-expanded="false" aria-controls="test{{loop.index0+1}}">View more</button>
+                </div>
+                <small class="text-muted">Image {{ loop.index0+1 }}</small>
+
+
+
+              </div>
+
+              <div class="collapse" id="test{{loop.index0+1}}">
+                <div class="card card-body">
+
+                  <table class="table table-striped table-borderless table-dark">
+                  <tbody>
+                      <tr class="nav-item">
+                          <td ><span data-feather="wind"></span>
+                            Total Oxygen
+                          </td>
+                          <td>
+                           {{ block['treeCount']*260 }} pounds per year
+                          </td>
+                      </tr>
+
+
+                       <tr class="nav-item">
+                          <td ><span data-feather="pie-chart"></span>
+                            Plantable Trees
+                          </td>
+                          <td>
+                            {{(block['totalArea']//9)|int}}
+                          </td>
+                        </tr>
+                  </tbody>
+              </table>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+                  {% endfor %}
+
+        {% endif %}
+
+
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+<script>
+      feather.replace()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

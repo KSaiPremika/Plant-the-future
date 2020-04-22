@@ -1,0 +1,187 @@
+{% extends "basic.html"%}
+{% block body %}
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	<script src="{{url_for('static',filename='js/Chart.min.js')}}"></script>
+	<script src="{{url_for('static',filename='js/utils.js')}}"></script>
+
+<script src="{{url_for('static',filename='js/feather.min.js')}}"></script>
+
+
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+
+        <h3 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 border-bottom">
+
+        <div class="h6 d-flex justify-content-center d-inline p-2 bg-white text-primary" >
+          Area Report
+          </div>
+          <span data-feather="file-text"></span>
+        </h3>
+
+
+        <table class="table table-striped">
+              <tbody>
+                <tr class="nav-item">
+                  <td ><span data-feather="home"></span>
+                    Address
+                  </td>
+                  <td >{{data_to_plot['address']['Address']}}</td>
+
+                </tr>
+
+
+               <tr class="nav-item">
+                  <td ><span data-feather="navigation"></span>
+                    Street Name
+                  </td>
+                  <td >{{data_to_plot['address']['Street']}}</td>
+
+                </tr>
+                <tr class="nav-item">
+                  <td ><span data-feather="map-pin"></span>
+                    Location
+                  </td>
+                  <td >{{data_to_plot['address']['Location']}}</td>
+
+                </tr>
+                <tr class="nav-item">
+                  <td ><span data-feather="truck"></span>
+                    Traffic Threshold
+                  </td>
+                  <td >{{data_to_plot['address']['Traffic Threshold']}}</td>
+
+                </tr>
+                <tr class="nav-item">
+                  <td ><span data-feather="clock"></span>
+                    Infrastructure construction Year
+                  </td>
+                  <td >{{data_to_plot['address']['Construction Year']}}</td>
+
+                </tr>
+              </tbody>
+        </table>
+      </div>
+    </nav>
+
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Analysis</h1>
+
+        <div class="justify-content-center"><h5 id="predictedTraffic" class="h5"></h5></div>
+
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <a id="forecast" href="/images" type="button" class="btn btn-sm btn-outline-secondary">Forecast the Future Traffic</a>
+
+          </div>
+
+
+          <button type="button"  class="nav-link dropdown-toggle btn btn-sm btn-outline-secondary dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span data-feather="calendar"></span>
+            Select Year</button>
+            <div id="dropdownYear" class="dropdown-menu" aria-labelledby="dropdown01">
+              <a onclick="selectedYear(this.text)" class="dropdown-item" href="#">2020</a>
+              <a onclick="selectedYear(this.text)" class="dropdown-item" href="#">2021</a>
+              <a onclick="selectedYear(this.text)" class="dropdown-item" href="#">2022</a>
+              <a onclick="selectedYear(this.text)" class="dropdown-item" href="#">2023</a>
+              <a onclick="selectedYear(this.text)" class="dropdown-item" href="#">2024</a>
+              <a onclick="selectedYear(this.text)" class="dropdown-item" href="#">2025</a>
+            </div>
+
+
+
+        </div>
+      </div>
+
+      <!--
+
+      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+
+      -->
+
+
+
+      <canvas class="my-4 w-100" id="canvas" width="900" height="380"></canvas>
+
+
+
+    <script src="{{url_for('static',filename='js/line_plot.js')}}"></script>
+      <script type="text/javascript">
+            myVar = myFuncLine({{data_to_plot|tojson}})
+         </script>
+
+
+
+
+    </main>
+  </div>
+</div>
+
+
+
+<script>
+      feather.replace()
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+
+        $(function() {
+
+        var forecast = document.getElementById("forecast");
+        forecast.style.backgroundColor = "#AAFFAA";
+        //console.log("document ready",forecast);
+
+   });
+          /*
+
+          $('#sendButton').bind('click', function() {
+          window.console.log("Clicked");
+
+          $.get('/images',function(data) {
+     alert("hello"+data);
+   });
+
+   });
+
+
+
+            $.ajax({
+            type : "POST",
+            url : '/images',
+            dataType: "json",
+            data: JSON.stringify("you can put in a variable in here to send data with the request"),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (data) {
+                console.log(data);
+                }
+            });
+                  });
+                });
+
+                */
+
+
+</script>
+
+
+  </body>
+
+{% endblock %}

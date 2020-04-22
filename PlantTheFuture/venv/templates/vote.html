@@ -1,0 +1,61 @@
+{% extends "basic.html"%}
+{% block body %}
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
+
+
+	<link href="{{url_for('static',filename='css/ionicons.css')}}" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="{{url_for('static',filename='css/jquery.classycountdown.css')}}" />
+
+	<link href="{{url_for('static',filename='css/styles.css')}}" rel="stylesheet">
+
+	<link href="{{url_for('static',filename='css/responsive.css')}}" rel="stylesheet">
+
+		<link href="{{url_for('static',filename='css/vote.css')}}" rel="stylesheet">
+
+
+
+<div id="main" class="main-area-wrapper">
+		<div class="main-area center-text" >
+
+			<div class="display-table">
+				<div class="display-table-cell">
+
+					<h1 class="title"><b>Coming Soon</b></h1>
+					<p class="desc font-white">Our website is currently undergoing scheduled maintenance.
+						We Should be back shortly. Thank you for your patience.</p>
+
+					<div id="normal-countdown" data-date="2020/05/01"></div>
+
+					<a class="notify-btn" href="/"><b>BACK TO HOME PAGE</b></a>
+
+					<ul class="social-btn">
+						<li class="list-heading">Follow us for update</li>
+						<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+						<li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+					</ul>
+
+				</div><!-- display-table -->
+			</div><!-- display-table-cell -->
+		</div><!-- main-area -->
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script src="{{url_for('static',filename='js/jquery.countdown.min.js')}}"></script>
+
+	<script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+
+
+
+
+
+
+
+
+
+{% endblock %}

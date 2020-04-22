@@ -1,0 +1,123 @@
+{% extends "basic.html"%}
+{% block body %}
+
+    <link href="{{url_for('static',filename='css/carousel.css')}}" rel="stylesheet">
+
+
+
+<main role="main">
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <img src="{{url_for('static',filename='assets/img/PlantTheFuture.jpg')}}">
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1>Plant the Future</h1>
+            <p>We predict when your locality can be void of trees.<br> Don't let the greens vanish.<br> With us, you can Plant your own Future!</p>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <img src="{{url_for('static',filename='assets/img/Deforestation.jpg')}}">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1 style="color: rgb(71, 35, 5)"> Know when your surroundings will run out of oxygen!</h1>
+            <p style="color: rgb(3, 46, 7)" > Are you feeling the oxy deprivation yet? <br>We shall break it down for you. </p>
+            <p  ><a class="btn btn-lg btn-primary" href="/learn" role="button">Learn how</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <img src="{{url_for('static',filename='assets/img/Vote.png')}}">
+        <div class="container">
+          <div class="carousel-caption text-right">
+            <h1 style="color: rgb(14, 180, 25)">One vote, and you are the G.O.A.T!</h1>
+            <p style="color: rgb(4, 71, 9)">Do you know of any construction which is harming any kind of trees?</p>
+            <p><a class="btn btn-lg btn-primary" href="/vote" role="button">Vote right away</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading" style="color:green"><b>Predicting your traffic is our jam.</b> <span class="text-muted" >It’ll blow your mind.</span></h2>
+        <p class="lead" style="color:#374E06">You select your locality, and we will predict the traffic growth there.<br>It's not just a number game,we have a proof.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#eee"></rect>
+          <image href="{{url_for('static',filename='assets/img/Traffic.png')}}" width="500" height="500"></image>
+        </svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading" style="color:green">We will give you the account of trees vulnerable to human actions.</h2>
+        <p class="lead" style="color:#374E06">So,we predict when and how many of your trees will get threatened. How cool is that? </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><image href="{{url_for('static',filename='assets/img/DangerTrees.jpg')}}" width="500" height="500"></image>></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading" style="color:green">And lastly,we tell you where else you can plant those trees and keep them safe. <span class="text-muted">Checkmate.</span></h2>
+        <p class="lead" style="color:#374E06">The satellite images will be considered and an arable land will be suggested.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#eee"></rect>
+          <image href="{{url_for('static',filename='assets/img/ArableLand.jpg')}}" width="500" height="500"></image>
+        </svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="js/jquery.slim.min.js"><\/script>')</script>
+
+<script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"  crossorigin="anonymous"></script></body>
+
+
+
+{% endblock %}
